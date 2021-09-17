@@ -262,6 +262,7 @@ export default {
       const height = this.lineTotalHeight / 2;
       const width = this.lengthFromMiddle;
       const modifier = this.isLeftSide ? "" : "-";
+  
       return `M${modifier}${width} ${height}L${modifier}${width} ${height}L0 ${height}L0 ${this.lineTotalHeight}`;
     },
 
@@ -274,6 +275,7 @@ export default {
     setWidth() {
       if (this.$refs.block === undefined) return;
       const xPos = getOffset(this.$refs.block).left;
+
       // for some reason there's a bug where we end up with 0
       // even though the dom should be rendered at this point?
       if (xPos !== 0) {
@@ -328,11 +330,18 @@ export default {
 
     onDragReceive(_event) {
       this.hoveringWithDrag = false;
+
       const draggingNode = this.draggingNodeFromEvent(_event);
       const toNode = _event.to;
+
       // Insert node
+
       // Move node
+
       const isNew = (draggingNode === false)
+
+
+
       if (draggingNode === false) {
         // not dragging from existing node (so dragged from new node list)
         const newNode = this.blockFromNewNodeEvent(_event);
