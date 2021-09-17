@@ -26,12 +26,14 @@
 <script>
 export default {
   name: 'ConnectorLine',
+
   props: {
     styling: Object,
     vertical: Boolean,
     verticalOffset: Boolean,
     path: String,
     showArrow: Boolean,
+    noChildren: Boolean
   },
 };
 </script>
@@ -42,10 +44,12 @@ export default {
   width: 100%;
   overflow: visible;
   pointer-events: none;
+
   svg {
     width: -webkit-fill-available;
     overflow: visible;
   }
+
   &--vertical {
     top: 100%;
   }
