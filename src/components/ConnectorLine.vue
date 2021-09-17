@@ -33,7 +33,7 @@ export default {
     verticalOffset: Boolean,
     path: String,
     showArrow: Boolean,
-    noChildren: Boolean
+    noChildren: Boolean,
   },
 };
 </script>
