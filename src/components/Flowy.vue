@@ -36,10 +36,12 @@ export default {
       type: Array,
       required: false,
     },
+
     beforeMove: {
       type: Function,
       default: () => true,
     },
+
     beforeAdd: {
       type: Function,
       default: () => true,
@@ -62,47 +64,58 @@ export default {
         parentId: -1,
       });
     },
+
     rows() {
       return [this.parentNodes];
     },
+
     dragging() {
       return this.draggingNode !== false && this.draggingNode !== null;
     },
   },
+
   methods: {
     setNotDragging() {
       setTimeout(() => {
         this.draggingNode = null;
       }, 50);
     },
+
     onBeforeMove(to) {
       return this.beforeMove({ to, from: this.draggingNode });
     },
+
     onBeforeAdd(to) {
       return this.beforeAdd({ to });
     },
+
     onDrop() {
       this.setNotDragging();
     },
+
     onDragStart(event) {
       this.draggingNode = event.node;
       this.$emit('drag-start', event);
     },
+
     onDragStop(event) {
       this.setNotDragging();
       this.$emit('drag-stop', event);
     },
+
     onEnterDrop(event) {
       this.$emit('enter-drop', {
         to: event.to,
         from: this.draggingNode,
       });
     },
+
     getChildren(parentId) {
       return filter(this.nodes, {
         parentId,
       });
     },
+
     onDragEnd(_event) {},
   },
 };
@@ -183,6 +196,7 @@ export default {
 .justify-center {
   justify-content: center;
 }
+
 
 .items-center {
   align-items: center;
