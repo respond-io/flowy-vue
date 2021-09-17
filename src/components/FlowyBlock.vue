@@ -1,5 +1,10 @@
 <template lang="html">
-	<div class="flowy-block mr-48px relative">
+	<div
+		class="flowy-block mr-24px relative"
+		:class="{
+			'no-children': noChildren,
+		}"
+	>
 		<slot></slot>
 		<component :is="component" v-bind="{ ...$props, ...$attrs, ...passedProps }" ref="block" />
 	</div>
@@ -18,6 +23,7 @@ export default {
 			type: Function,
 			required: true,
 		},
+		noChildren: Boolean,
 	},
 	data() {
 		return {};

@@ -1,10 +1,7 @@
 <template language="html">
-	<div
-		class="flowy overflow-auto"
-		:class="{
+	<div class="flowy" :class="{
 			dragging: dragging,
-		}"
-	>
+		}">
 		<div id="flowy-tree">
 			<FlowyNode
 				v-bind="{ ...$props }"
@@ -19,8 +16,7 @@
 				:before-add="onBeforeAdd"
 				:is-dragging="dragging"
 				:zoom="zoom"
-			>
-			</FlowyNode>
+			></FlowyNode>
 		</div>
 	</div>
 </template>
@@ -187,12 +183,12 @@ export default {
 	margin-right: -24px;
 }
 
-.mr-48px {
-	margin-right: 24px;
+.mr-36px {
+	margin-right: 36px;
 }
 
-.-mr-48px {
-	margin-right: -24px;
+.-mr-36px {
+	margin-right: -36px;
 }
 
 .justify-center {

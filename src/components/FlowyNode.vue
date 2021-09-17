@@ -32,9 +32,9 @@
 				<!-- Vertical line -->
 				<ConnectorLine
 					vertical
-					v-if="hasChildren"
 					:styling="lineMargins"
 					:path="linePathDown"
+					:no-children="!hasChildren"
 				/>
 
 				<DropIndicator :show="showIndicator" :not-allowed="!dropAllowed" />
@@ -60,17 +60,17 @@
 		<!-- children tree -->
 		<div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-96px">
 			<template v-for="(child, index) in children">
-				<flowy-node
-					v-bind="{ ...$props }"
-					v-on="{ ...$listeners }"
-					:index="index"
-					:total-children="children.length"
-					:node="child"
-					:ref="child.id"
-					:key="child.id"
-					:parent-x="xPos"
-				/>
-			</template>
+	<flowy-node
+		v-bind="{ ...$props }"
+		v-on="{ ...$listeners }"
+		:index="index"
+		:total-children="children.length"
+		:node="child"
+		:ref="child.id"
+		:key="child.id"
+		:parent-x="xPos"
+	/>
+</template>
 		</div>
 	</div>
 </template>
@@ -162,6 +162,7 @@ export default {
 
 	mounted() {
 		this.mounted = true;
+		this.setWidth();
 		// TODO: why this need to run every 200 ms
 		// this.timer = setInterval(this.setWidth, 200);
 	},

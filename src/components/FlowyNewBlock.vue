@@ -1,5 +1,5 @@
 <template lang="html">
-	<div class="flowy-block mr-48px relative">
+	<div class="flowy-block mr-24px relative">
 		<draggable
 			:with-handle="false"
 			:draggable-mirror="{ xAxis: false, appendTo: 'body' }"
