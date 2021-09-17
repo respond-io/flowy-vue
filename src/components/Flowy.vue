@@ -125,6 +125,7 @@ export default {
 .draggable-mirror {
   z-index: 100;
   opacity: 0.7;
+
   svg.flowy-line {
     display: none;
   }
