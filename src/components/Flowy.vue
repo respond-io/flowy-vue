@@ -170,12 +170,12 @@ export default {
   margin-top: 64px;
 }
 
-.-mt-96px {
-  margin-top: -96px;
+.-mt-128px {
+  margin-top: -128px;
 }
 
-.mt-96px {
-  margin-top: 96px;
+.mt-128px {
+  margin-top: 128px;
 }
 
 .mr-24px {

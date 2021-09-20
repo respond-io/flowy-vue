@@ -1,7 +1,8 @@
 <template lang="html">
-  <div class="flowy-block mr-24px relative"
+  <div class="flowy-block mr-24px relative" :data-id="`node-${node.id}`"
   :class="{
     'no-children': noChildren,
+    [node.customClass]: true
     }">
     <slot></slot>
     <component

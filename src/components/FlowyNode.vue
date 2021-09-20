@@ -16,6 +16,7 @@
         class="draggable"
         :remove="removeNode"
         v-bind="{ ...$props, ...passedProps }"
+        :no-children='!hasChildren'
       >
         <div class='dimensionBox' style="" ref="block" />
 
@@ -29,6 +30,7 @@
 
         <!-- Vertical line -->
         <ConnectorLine
+          v-if="!node.noConnector"
           vertical
           :styling='lineMargins'
           :path='linePathDown'
@@ -56,7 +58,7 @@
     </draggable>
 
     <!-- children tree -->
-    <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-96px">
+    <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-128px">
       <template v-for="(child, index) in children">
         <flowy-node
           v-bind="{ ...$props }"
@@ -178,9 +180,7 @@ export default {
 
   watch: {
     zoom() {
-			setTimeout(() => {
 				this.setWidth();
-			}, 1);
 		},
 	},
 
@@ -205,7 +205,7 @@ export default {
     lineTotalHeight() {
 			// check .mt-64px & .-mt-64px
 			// return 64;
-			return 96;
+			return 128;
     },
 
     isOddChildren() {
