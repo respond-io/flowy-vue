@@ -238,15 +238,4 @@ export default {
 .z-50 {
   z-index: 50;
 }
-
-//Fix issue where the 2 to n-1 child blocks connector line goes out the range
-.flowy-node {
-	~ .flowy-node:not(:last-child) {
-		> .flowy-block {
-			> .flowy-line-block {
-				overflow: hidden !important;
-			}
-		}
-	}
-}
 </style>

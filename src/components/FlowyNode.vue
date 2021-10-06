@@ -262,8 +262,24 @@ export default {
       const height = this.lineTotalHeight / 2;
       const width = this.lengthFromMiddle;
       const modifier = this.isLeftSide ? "" : "-";
-  
+      const radius = 16;
+
+      // bend it
+      if (width && this.isFirstOrLast) {
+        return `M${modifier}${width} ${height}
+                L${modifier}${width} ${height}
+                L${modifier}${radius} ${height}
+                A ${radius} ${radius} 0 0 ${this.isLeftSide ? 0 : 1} 0 ${height + radius}
+                L0 ${height + radius}
+                L0 ${this.lineTotalHeight}`;
+      }
+
       return `M${modifier}${width} ${height}L${modifier}${width} ${height}L0 ${height}L0 ${this.lineTotalHeight}`;
+    },
+
+    isFirstOrLast() {
+      if (this.totalChildren === 1) return false;
+      return (this.index === 0 || this.index === this.totalChildren - 1);
     },
 
     lengthFromMiddle() {
