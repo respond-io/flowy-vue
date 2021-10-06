@@ -238,4 +238,10 @@ export default {
 .z-50 {
   z-index: 50;
 }
+
+svg.flowy-line path {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	shape-rendering: geometricprecision; // used to sharpen the line
+}
 </style>

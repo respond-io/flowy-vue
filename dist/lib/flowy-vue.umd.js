@@ -8544,14 +8544,14 @@ module.exports = isKey;
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4cc6e11d-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Flowy.vue?vue&type=template&id=c7b2ffc8&language=html&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4cc6e11d-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Flowy.vue?vue&type=template&id=5b259114&language=html&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"flowy",class:{
     dragging: _vm.dragging,
   }},[_c('div',{attrs:{"id":"flowy-tree"}},_vm._l((_vm.parentNodes),function(node){return _c('FlowyNode',_vm._g(_vm._b({key:node.id,attrs:{"node":node,"before-move":_vm.onBeforeMove,"before-add":_vm.onBeforeAdd,"is-dragging":_vm.dragging,"zoom":_vm.zoom},on:{"drag-start":function($event){return _vm.onDragStart($event)},"drag-stop":function($event){return _vm.onDragStop($event)},"enter-drop":function($event){return _vm.onEnterDrop($event)}}},'FlowyNode',Object.assign({}, _vm.$props),false),Object.assign({}, _vm.$listeners)))}),1)])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=template&id=c7b2ffc8&language=html&
+// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=template&id=5b259114&language=html&
 
 // EXTERNAL MODULE: ./node_modules/lodash/find.js
 var find = __webpack_require__("2769");
