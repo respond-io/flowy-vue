@@ -5,7 +5,13 @@ export default Vue.extend({
 
   render(h) {
     return h('div', {
-      staticClass: 'flowy-drag-handle',
+      staticClass: this.draggable ? 'flowy-drag-handle': '',
     }, this.$slots.default);
   },
+  props: {
+    draggable: {
+      type: Boolean,
+      default: true
+    }
+  }
 });

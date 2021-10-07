@@ -2,7 +2,7 @@
   <transition name='scale'>
     <div
       class='indicator'
-      :class='{ "not-allowed": !notAllowed }'
+      :class='{ "not-allowed": notAllowed }'
       v-show='show'
     />
   </transition>
@@ -47,7 +47,7 @@ export default {
   }
 }
 
-.indicator .not-allowed {
+.indicator.not-allowed {
   background-color: #f5365c;
 
   &:after {
