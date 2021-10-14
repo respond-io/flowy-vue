@@ -179,11 +179,11 @@ export default {
 }
 
 .mr-24px {
-  margin-right: 18px;
+  margin-right: 16px;
 }
 
 .-mr-24px {
-  margin-right: -18px;
+  margin-right: -16px;
 }
 
 .mr-36px {
