@@ -58,7 +58,7 @@
     </draggable>
 
     <!-- children tree -->
-    <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-128px">
+    <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px">
       <template v-for="(child, index) in children">
         <flowy-node
           v-bind="{ ...$props }"
@@ -205,7 +205,7 @@ export default {
     lineTotalHeight() {
 			// check .mt-64px & .-mt-64px
 			// return 64;
-			return 128;
+			return 74;
     },
 
     isOddChildren() {
@@ -262,7 +262,7 @@ export default {
       const height = this.lineTotalHeight / 2;
       const width = this.lengthFromMiddle;
       const modifier = this.isLeftSide ? "" : "-";
-      const radius = 16;
+      const radius = 12;
 
       // bend it
       if (width && this.isFirstOrLast) {

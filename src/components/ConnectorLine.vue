@@ -4,7 +4,7 @@
     class="flowy-line-block overflow-visible"
     :class="{
       'flowy-line-block--vertical': vertical,
-      '-mt-128px': verticalOffset,
+      '-mt-74px': verticalOffset,
       'no-children': noChildren,
       }"
   >
