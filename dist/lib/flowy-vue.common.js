@@ -6297,12 +6297,12 @@ module.exports = mapCacheHas;
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4cc6e11d-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FlowyNode.vue?vue&type=template&id=7bfedba9&lang=html&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4cc6e11d-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FlowyNode.vue?vue&type=template&id=e88deea6&lang=html&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"flowy-node",staticClass:"flowy-node flex flex-col flex-no-wrap items-center relative overflow-visible"},[_c('draggable',{staticClass:"flowy-draggable",attrs:{"group":"flowy","with-handle":false,"draggable-mirror":{ xAxis: false, appendTo: 'body' },"data":{ draggingNode: _vm.node }},on:{"stop":function($event){return _vm.onStop(_vm.node, $event)},"start":function($event){return _vm.onStart(_vm.node, $event)}}},[_c('flowy-block',_vm._b({staticClass:"draggable",attrs:{"data":_vm.node,"remove":_vm.removeNode,"no-children":!_vm.hasChildren}},'flowy-block',Object.assign({}, _vm.$props, _vm.passedProps),false),[_c('div',{ref:"block",staticClass:"dimensionBox"}),(!_vm.isTopParent && _vm.mounted)?_c('ConnectorLine',{attrs:{"verticalOffset":"","styling":_vm.lineMargins,"path":_vm.linePath}}):_vm._e(),(!_vm.node.noConnector)?_c('ConnectorLine',{attrs:{"vertical":"","styling":_vm.lineMargins,"path":_vm.linePathDown,"no-children":!_vm.hasChildren}}):_vm._e(),_c('DropIndicator',{attrs:{"show":_vm.showIndicator,"not-allowed":!_vm.dropAllowed}}),_c('dropzone',{staticClass:"node-dropzone",attrs:{"data":{ dropzoneNode: _vm.node },"group":"first_group"},on:{"enter":function($event){return _vm.onEnterDrag({ to: _vm.node })},"leave":function($event){return _vm.onLeaveDrag($event)},"drop":function($event){return _vm.onDrop($event)},"receive":function($event){return _vm.onDragReceive(Object.assign({}, $event, {to: _vm.node}))}},scopedSlots:_vm._u([{key:"default",fn:function(scope){return [_c('div',{staticClass:"node-dropzone",class:scope},[_c('div',{})])]}}])})],1)],1),_c('div',{staticClass:"flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px"},[_vm._l((_vm.children),function(child,index){return [_c('flowy-node',_vm._g(_vm._b({key:child.id,ref:child.id,refInFor:true,attrs:{"index":index,"total-children":_vm.children.length,"node":child,"parent-x":_vm.xPos}},'flowy-node',Object.assign({}, _vm.$props),false),Object.assign({}, _vm.$listeners)))]})],2)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=7bfedba9&lang=html&
+// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=e88deea6&lang=html&
 
 // EXTERNAL MODULE: ./node_modules/lodash/find.js
 var find = __webpack_require__("2769");
@@ -6704,7 +6704,7 @@ function getOffset(el) {
 
     linePath() {
       const height = this.lineTotalHeight / 2;
-      const width = this.lengthFromMiddle;
+      let width = this.lengthFromMiddle;
       const modifier = this.isLeftSide ? "" : "-";
       const radius = 12; // bend it
 
@@ -6715,8 +6715,10 @@ function getOffset(el) {
                 A ${radius} ${radius} 0 0 ${this.isLeftSide ? 0 : 1} 0 ${height + radius}
                 L0 ${height + radius}
                 L0 ${this.lineTotalHeight}`;
-      }
+      } // ensure middle block connectors do not exceed length
 
+
+      if (!this.isFirstOrLast) width = 0;
       return `M${modifier}${width} ${height}L${modifier}${width} ${height}L0 ${height}L0 ${this.lineTotalHeight}`;
     },
 

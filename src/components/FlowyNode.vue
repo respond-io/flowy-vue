@@ -260,7 +260,7 @@ export default {
 
     linePath() {
       const height = this.lineTotalHeight / 2;
-      const width = this.lengthFromMiddle;
+      let width = this.lengthFromMiddle ;
       const modifier = this.isLeftSide ? "" : "-";
       const radius = 12;
 
@@ -273,6 +273,10 @@ export default {
                 L0 ${height + radius}
                 L0 ${this.lineTotalHeight}`;
       }
+
+      // ensure middle block connectors do not exceed length
+      if (!this.isFirstOrLast) width = 0;
+    
 
       return `M${modifier}${width} ${height}L${modifier}${width} ${height}L0 ${height}L0 ${this.lineTotalHeight}`;
     },
