@@ -32,7 +32,7 @@
         <ConnectorLine
           v-if="!node.noConnector"
           vertical
-          :styling='lineMargins'
+          :styling='lineMarginsDown'
           :path='linePathDown'
           :no-children='!hasChildren'
         />
@@ -198,8 +198,13 @@ export default {
       return this.hoveringWithDrag;
     },
 
-    lineMargins() {
+    lineMarginsDown() {
       return { marginLeft: `${this.blockWidth / 2}px` };
+    },
+
+    lineMargins() {
+      const offset = this.parentX - this.xPosProxy;
+      return { marginLeft: `${(this.blockWidth / 2) + (Math.abs(offset) < 5 ? offset : 0)}px` };
     },
 
     lineTotalHeight() {
