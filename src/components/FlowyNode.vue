@@ -378,6 +378,7 @@ export default {
           this.moveNode(draggingNode, toNode);
         }
       }
+      this.$emit('drag-received', { to: toNode, from: draggingNode })
       this.dropAllowed = true;
       this.setWidth();
     },
