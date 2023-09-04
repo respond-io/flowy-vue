@@ -59,18 +59,17 @@
 
     <!-- children tree -->
     <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px">
-      <template v-for="(child, index) in children">
+      <span v-for="(child, index) in children" :key="child.id">
         <flowy-node
           v-bind="{ ...$props }"
-          v-on="{ ...$listeners }"
+          v-on="{ ...$attrs }"
           :index="index"
           :total-children="children.length"
           :node="child"
           :ref="child.id"
-          :key="child.id"
           :parent-x="xPos"
         />
-      </template>
+      </span>
     </div>
   </div>
 </template>
@@ -166,7 +165,7 @@ export default {
 		// this.timer = setInterval(this.setWidth, 200);
   },
 
-  destroyed() {
+  unmounted() {
     clearInterval(this.timer);
   },
 
