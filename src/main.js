@@ -1,15 +1,16 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import FlowyPlugin from '@/index.js';
 import DemoBlock from '@/demo_components/DemoBlock.vue';
 import DemoNode from '@/demo_components/DemoNode.vue';
+import VueSortable from "vue3-sortablejs";
 import App from './App.vue';
 
-Vue.use(FlowyPlugin);
-Vue.component('DemoBlock', DemoBlock);
-Vue.component('DemoNode', DemoNode);
+const app = createApp(App);
 
-Vue.config.productionTip = false;
 
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
+app.use(VueSortable);
+app.use(FlowyPlugin);
+app.component('DemoBlock', DemoBlock);
+app.component('DemoNode', DemoNode);
+
+app.mount('#app');
