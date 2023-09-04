@@ -34,7 +34,7 @@
           vertical
           :styling='lineMarginsDown'
           :path='linePathDown'
-          :no-children='!hasChildren'
+          :no-children='!hasChildren || null'
         />
 
         <DropIndicator :show='showIndicator' :not-allowed='!dropAllowed' />
