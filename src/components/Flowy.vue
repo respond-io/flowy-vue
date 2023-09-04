@@ -8,7 +8,7 @@
     <div id='flowy-tree'>
       <FlowyNode
         v-bind='{ ...$props }'
-        v-on='{ ...$listeners }'
+        v-on='{ ...$attrs }'
         :node='node'
         :key='node.id'
         v-for='node in parentNodes'
@@ -17,7 +17,7 @@
         @enter-drop='onEnterDrop($event)'
         :before-move='onBeforeMove'
         :before-add='onBeforeAdd'
-        :is-dragging='dragging'
+        :is-dragging='dragging || null'
         :zoom="zoom"
       >
       </FlowyNode>
