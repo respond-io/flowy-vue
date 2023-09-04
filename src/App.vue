@@ -15,14 +15,14 @@
               @drag-start="onDragStartNewBlock"
               @drag-stop="onDragStopNewBlock"
             >
-              <template v-slot:preview="{}">
+              <template #preview>
                 <demo-block
                   :title="block.preview.title"
                   :description="block.preview.description"
                   :icon="block.preview.icon"
                 />
               </template>
-              <template v-slot:node="{}">
+              <template #node>
                 <demo-node
                   :title="block.node.title"
                   :description="block.node.description"
