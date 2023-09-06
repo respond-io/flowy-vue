@@ -1,75 +1,60 @@
 <template lang="html">
-  <div class="flowy-node flex flex-col flex-no-wrap items-center relative overflow-visible"
-  ref="flowy-node">
-    <draggable
-      class="flowy-draggable"
-      group="flowy"
-      @stop="onStop(node, $event)"
-      @start="onStart(node, $event)"
-      :with-handle="false"
-      :draggable-mirror="{ xAxis: false, appendTo: 'body' }"
-      :data="{ draggingNode: node }"
+  <div
+    class="flowy-node flex flex-col flex-no-wrap items-center relative overflow-visible"
+    ref="flowy-node"
+  >
+    <!-- the node itself -->
+    <flowy-block
+      v-bind="{ ...$props, ...passedProps }"
+      draggable="true"
+      @dragstart="onStart(node, $event)"
+      @dragend="onStop(node, $event)"
+      :data="node"
+      :remove="removeNode"
+      :no-children="!hasChildren"
     >
-      <!-- the node itself -->
-      <flowy-block
-        :data="node"
-        class="draggable"
-        :remove="removeNode"
-        v-bind="{ ...$props, ...passedProps }"
-        :no-children='!hasChildren'
-      >
-        <div class='dimensionBox' style="" ref="block" />
+      <div class="dimensionBox" style="" ref="block" />
 
-        <!-- Horizontal line -->
-        <ConnectorLine
-          verticalOffset
-          v-if="!isTopParent && mounted"
-          :styling='lineMargins'
-          :path='linePath'
-        />
+      <!-- Horizontal line -->
+      <ConnectorLine
+        verticalOffset
+        v-if="!isTopParent && mounted"
+        :styling="lineMargins"
+        :path="linePath"
+      />
 
-        <!-- Vertical line -->
-        <ConnectorLine
-          v-if="!node.noConnector"
-          vertical
-          :styling='lineMarginsDown'
-          :path='linePathDown'
-          :no-children='!hasChildren || null'
-        />
+      <!-- Vertical line -->
+      <ConnectorLine
+        v-if="!node.noConnector"
+        vertical
+        :styling="lineMarginsDown"
+        :path="linePathDown"
+        :no-children="!hasChildren || null"
+      />
 
-        <DropIndicator :show='showIndicator' :not-allowed='!dropAllowed' />
+      <DropIndicator :show="showIndicator" :not-allowed="!dropAllowed" />
 
-        <dropzone
-          :data="{ dropzoneNode: node }"
-          @enter="onEnterDrag({ to: node })"
-          @leave="onLeaveDrag($event)"
-          @drop="onDrop($event)"
-          @receive="onDragReceive({ ...$event, to: node })"
-          group="first_group"
-          class="node-dropzone"
-        >
-          <template #default="scope">
-            <div :class="scope" class="node-dropzone">
-              <div class=""></div>
-            </div>
-          </template>
-        </dropzone>
-      </flowy-block>
-    </draggable>
+      <div
+        @dragenter="onEnterDrag({ to: node })"
+        @dragleave="onLeaveDrag($event)"
+        @drop="onDragReceive({ ...$event, to: node })"
+        @dragover.prevent
+        class="node-dropzone"
+      ></div>
+    </flowy-block>
 
     <!-- children tree -->
     <div class="flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px">
-      <span v-for="(child, index) in children" :key="child.id">
+      <template v-for="(child, index) in children" :key="child.id">
         <flowy-node
-          v-bind="{ ...$props }"
-          v-on="{ ...$attrs }"
+          v-bind="{ ...$props, ...$attrs }"
           :index="index"
           :total-children="children.length"
           :node="child"
           :ref="child.id"
           :parent-x="xPos"
         />
-      </span>
+      </template>
     </div>
   </div>
 </template>
@@ -143,8 +128,13 @@ export default {
 
     zoom: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
+
+    draggingNode: {
+      type: Object,
+      default: null,
+    },
   },
 
   data() {
@@ -161,8 +151,8 @@ export default {
   mounted() {
     this.mounted = true;
     this.setWidth();
-		// TODO: why this need to run every 200 ms
-		// this.timer = setInterval(this.setWidth, 200);
+    // TODO: why this need to run every 200 ms
+    // this.timer = setInterval(this.setWidth, 200);
   },
 
   unmounted() {
@@ -179,9 +169,9 @@ export default {
 
   watch: {
     zoom() {
-				this.setWidth();
-		},
-	},
+      this.setWidth();
+    },
+  },
 
   computed: {
     xPos() {
@@ -203,13 +193,13 @@ export default {
 
     lineMargins() {
       const offset = this.parentX - this.xPosProxy;
-      return { marginLeft: `${(this.blockWidth / 2) + (Math.abs(offset) < 5 ? offset : 0)}px` };
+      return { marginLeft: `${this.blockWidth / 2 + (Math.abs(offset) < 5 ? offset : 0)}px` };
     },
 
     lineTotalHeight() {
-			// check .mt-64px & .-mt-64px
-			// return 64;
-			return 74;
+      // check .mt-64px & .-mt-64px
+      // return 64;
+      return 74;
     },
 
     isOddChildren() {
@@ -217,10 +207,7 @@ export default {
     },
 
     isMiddle() {
-      return (
-        this.isOddChildren &&
-        this.index + 1 === Math.ceil(this.totalChildren / 2)
-      );
+      return this.isOddChildren && this.index + 1 === Math.ceil(this.totalChildren / 2);
     },
 
     isLeftSide() {
@@ -258,13 +245,13 @@ export default {
     },
 
     linePathDown() {
-      const lineHeight = this.lineTotalHeight
+      const lineHeight = this.lineTotalHeight;
       return `M0 0L0 ${lineHeight / 2}L0 ${lineHeight / 2}L0 ${lineHeight / 2}`;
     },
 
     linePath() {
       const height = this.lineTotalHeight / 2;
-      let width = this.lengthFromMiddle ;
+      let width = this.lengthFromMiddle;
       const modifier = this.isLeftSide ? "" : "-";
       const radius = 12;
 
@@ -280,14 +267,13 @@ export default {
 
       // ensure middle block connectors do not exceed length
       if (!this.isFirstOrLast) width = 0;
-    
 
       return `M${modifier}${width} ${height}L${modifier}${width} ${height}L0 ${height}L0 ${this.lineTotalHeight}`;
     },
 
     isFirstOrLast() {
       if (this.totalChildren === 1) return false;
-      return (this.index === 0 || this.index === this.totalChildren - 1);
+      return this.index === 0 || this.index === this.totalChildren - 1;
     },
 
     lengthFromMiddle() {
@@ -331,14 +317,14 @@ export default {
 
     onStart(node) {
       // get the mirror and append to outside container on vue app
-			setTimeout(() => {
-				const mirror = this.$refs['flowy-node'].querySelector('.flowy-block.draggable-mirror');
-
-				if (mirror) {
-					mirror.style.opacity = 0.6;
-					document.querySelector('#app').appendChild(mirror);
-				}
-			});
+      // setTimeout(() => {
+      //   const mirror = this.$refs["flowy-node"].querySelector(".flowy-block.draggable-mirror");
+      //
+      //   if (mirror) {
+      //     mirror.style.opacity = 0.6;
+      //     document.querySelector("#app").appendChild(mirror);
+      //   }
+      // });
       this.$emit("drag-start", { node });
     },
 
@@ -355,17 +341,12 @@ export default {
     onDragReceive(_event) {
       this.hoveringWithDrag = false;
 
-      const draggingNode = this.draggingNodeFromEvent(_event);
+      const draggingNode = this.draggingNode;
       const toNode = _event.to;
 
       // Insert node
 
       // Move node
-
-      const isNew = (draggingNode === false)
-
-
-
       if (draggingNode === false) {
         // not dragging from existing node (so dragged from new node list)
         const newNode = this.blockFromNewNodeEvent(_event);
@@ -377,7 +358,7 @@ export default {
           this.moveNode(draggingNode, toNode);
         }
       }
-      this.$emit('drag-received', { to: toNode, from: draggingNode })
+      this.$emit("drag-received", { to: toNode, from: draggingNode });
       this.dropAllowed = true;
       this.setWidth();
     },
