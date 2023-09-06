@@ -1,24 +1,25 @@
-<template language='html'>
+<template>
   <div
-    class='flowy'
-    :class='{
+    class="flowy"
+    :class="{
       dragging: dragging,
-    }'
+    }"
   >
-    <div id='flowy-tree'>
+    <div ref="flowyRef" id="flowy-tree">
       <FlowyNode
-        v-bind='{ ...$props }'
-        v-on='{ ...$attrs }'
-        :node='node'
-        :key='node.id'
-        v-for='node in parentNodes'
-        @drag-start='onDragStart($event)'
-        @drag-stop='onDragStop($event)'
-        @enter-drop='onEnterDrop($event)'
-        :before-move='onBeforeMove'
-        :before-add='onBeforeAdd'
-        :is-dragging='dragging || null'
+        v-bind="$props"
+        :node="node"
+        :key="node.id"
+        v-for="node in parentNodes"
+        @drag-start="onDragStart($event)"
+        @drag-stop="onDragStop($event)"
+        @enter-drop="onEnterDrop($event)"
+        @move="$emit('move', $event)"
+        :before-move="onBeforeMove"
+        :before-add="onBeforeAdd"
+        :is-dragging="dragging || null"
         :zoom="zoom"
+        :dragging-node="draggingNode"
       >
       </FlowyNode>
     </div>
@@ -27,8 +28,8 @@
 
 <script>
 /* eslint-disable no-unused-vars */
-import find from 'lodash/find';
-import filter from 'lodash/filter';
+import find from "lodash/find";
+import filter from "lodash/filter";
 
 export default {
   props: {
@@ -95,16 +96,16 @@ export default {
 
     onDragStart(event) {
       this.draggingNode = event.node;
-      this.$emit('drag-start', event);
+      this.$emit("drag-start", event);
     },
 
     onDragStop(event) {
       this.setNotDragging();
-      this.$emit('drag-stop', event);
+      this.$emit("drag-stop", event);
     },
 
     onEnterDrop(event) {
-      this.$emit('enter-drop', {
+      this.$emit("enter-drop", {
         to: event.to,
         from: this.draggingNode,
       });
@@ -121,7 +122,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 .draggable-mirror {
   z-index: 100;
   opacity: 0.7;
@@ -133,7 +134,7 @@ export default {
 
 .flowy-node {
   transition: all 0.3s;
-  @extend .flex, .flex-col, .flex-no-wrap, .items-center, .relative, .overflow-visible
+  @extend .flex, .flex-col, .flex-no-wrap, .items-center, .relative, .overflow-visible;
 }
 
 .node-dropzone {
@@ -198,7 +199,6 @@ export default {
   justify-content: center;
 }
 
-
 .items-center {
   align-items: center;
 }
@@ -240,8 +240,8 @@ export default {
 }
 
 svg.flowy-line path {
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	shape-rendering: geometricprecision; // used to sharpen the line
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  shape-rendering: geometricprecision; // used to sharpen the line
 }
 </style>
