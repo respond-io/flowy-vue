@@ -31,13 +31,11 @@
 		"vue": "~3"
 	},
 	"dependencies": {
-		"@hipsjs/shopify-draggable-vue": "^1.0.7",
 		"lodash": "^4.17.15"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "^5.0.8",
 		"@vue/cli-service": "^5.0.8",
-		"@vue/compat": "^3.3.4",
 		"@vue/compiler-sfc": "^3.3.4",
 		"@vue/eslint-config-airbnb": "5.0.2",
 		"babel-eslint": "10.1.0",
