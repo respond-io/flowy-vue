@@ -1,23 +1,16 @@
 <template lang="html">
   <div class="flowy-block mr-24px relative">
-    <draggable
-        :with-handle="false"
-        :draggable-mirror="{ xAxis: false, appendTo: 'body' }"
-        group="flowy"
-        @start="onStart(nodeData)"
-        @stop="onStop(nodeData)"
-        :data="{ type: 'new', ...nodeData }"
-      >
+    <div draggable="true" @dragstart="onStart(nodeData)" @dragend="onStop(nodeData)">
       <slot name="preview"></slot>
-    </draggable>
+    </div>
   </div>
 </template>
 
 <script setup>
-import {ref, computed, onMounted, onUnmounted, useSlots} from 'vue';
+import { ref, computed, onMounted, useSlots } from "vue";
 
 const node = ref({
-  componentName: '',
+  componentName: "",
   props: {},
 });
 
@@ -35,12 +28,12 @@ onMounted(() => {
 
 const nodeData = computed(() => node.value);
 
-const emit = defineEmits(['drag-start', 'drag-stop'])
+const emit = defineEmits(["drag-start", "drag-stop"]);
 const onStart = (data) => {
-  emit('drag-start', data);
+  emit("drag-start", data);
 };
 
 const onStop = (data) => {
-  emit('drag-stop', data);
+  emit("drag-stop", data);
 };
 </script>
