@@ -315,7 +315,7 @@ export default {
       };
     },
 
-    onStart(node) {
+    onStart(node, event) {
       // get the mirror and append to outside container on vue app
       // setTimeout(() => {
       //   const mirror = this.$refs["flowy-node"].querySelector(".flowy-block.draggable-mirror");
@@ -325,6 +325,12 @@ export default {
       //     document.querySelector("#app").appendChild(mirror);
       //   }
       // });
+      var crt = document.cloneNode(true);
+      crt.style.backgroundColor = "red";
+      crt.style.position = "absolute"; crt.style.top = "0px"; crt.style.right = "0px";
+      crt.classList.add("flowy-ghost");
+      document.body.appendChild(crt);
+      event.dataTransfer.setDragImage(crt, 0, 0);
       this.$emit("drag-start", { node });
     },
 
