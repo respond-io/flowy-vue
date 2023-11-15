@@ -5694,7 +5694,7 @@ if (typeof window !== 'undefined') {
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(7203);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/Flowy.vue?vue&type=template&id=923b806c
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/Flowy.vue?vue&type=template&id=4b6a59fc
 
 const _hoisted_1 = {
   ref: "flowyRef",
@@ -5722,7 +5722,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }), null, 16, ["node", "before-move", "before-add", "is-dragging", "zoom", "dragging-node"]);
   }), 128))], 512)], 2);
 }
-;// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=template&id=923b806c
+;// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=template&id=4b6a59fc
 
 // EXTERNAL MODULE: ./node_modules/lodash/find.js
 var find = __webpack_require__(3311);
@@ -5792,14 +5792,14 @@ var filter_default = /*#__PURE__*/__webpack_require__.n(filter);
     },
     onDragStart(event) {
       this.draggingNode = event.node;
-      this.$emit("drag-start", event);
+      this.$emit('drag-start', event);
     },
     onDragStop(event) {
       this.setNotDragging();
-      this.$emit("drag-stop", event);
+      this.$emit('drag-stop', event);
     },
     onEnterDrop(event) {
-      this.$emit("enter-drop", {
+      this.$emit('enter-drop', {
         to: event.to,
         from: this.draggingNode
       });
@@ -5814,10 +5814,10 @@ var filter_default = /*#__PURE__*/__webpack_require__.n(filter);
 });
 ;// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/Flowy.vue?vue&type=style&index=0&id=923b806c&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/Flowy.vue?vue&type=style&index=0&id=4b6a59fc&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=style&index=0&id=923b806c&lang=scss
+;// CONCATENATED MODULE: ./src/components/Flowy.vue?vue&type=style&index=0&id=4b6a59fc&lang=scss
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/dist/exportHelper.js
 var exportHelper = __webpack_require__(3744);
@@ -5832,9 +5832,9 @@ var exportHelper = __webpack_require__(3744);
 const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Flowyvue_type_script_lang_js, [['render',render]])
 
 /* harmony default export */ var Flowy = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=template&id=4c8d9920&lang=html
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=template&id=4e6d2708&lang=html
 
-const FlowyNodevue_type_template_id_4c8d9920_lang_html_hoisted_1 = {
+const FlowyNodevue_type_template_id_4e6d2708_lang_html_hoisted_1 = {
   class: "flowy-node flex flex-col flex-no-wrap items-center relative overflow-visible",
   ref: "flowy-node"
 };
@@ -5846,12 +5846,12 @@ const _hoisted_2 = {
 const _hoisted_3 = {
   class: "flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px"
 };
-function FlowyNodevue_type_template_id_4c8d9920_lang_html_render(_ctx, _cache, $props, $setup, $data, $options) {
+function FlowyNodevue_type_template_id_4e6d2708_lang_html_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ConnectorLine = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("ConnectorLine");
   const _component_DropIndicator = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("DropIndicator");
   const _component_flowy_block = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("flowy-block");
   const _component_flowy_node = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("flowy-node", true);
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", FlowyNodevue_type_template_id_4c8d9920_lang_html_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createVNode)(_component_flowy_block, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
+  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", FlowyNodevue_type_template_id_4e6d2708_lang_html_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createVNode)(_component_flowy_block, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
     ..._ctx.$props,
     ...$options.passedProps
   }, {
@@ -5905,7 +5905,7 @@ function FlowyNodevue_type_template_id_4c8d9920_lang_html_render(_ctx, _cache, $
     }), null, 16, ["index", "total-children", "node", "parent-x"]);
   }), 128))])], 512);
 }
-;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=4c8d9920&lang=html
+;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=4e6d2708&lang=html
 
 // EXTERNAL MODULE: ./node_modules/lodash/isNil.js
 var isNil = __webpack_require__(4293);
@@ -6032,7 +6032,7 @@ function getOffset(el) {
   };
 }
 /* harmony default export */ var FlowyNodevue_type_script_lang_js = ({
-  name: "FlowyNode",
+  name: 'FlowyNode',
   components: {
     ConnectorLine: ConnectorLine,
     DropIndicator: DropIndicator
@@ -6179,7 +6179,7 @@ function getOffset(el) {
     linePath() {
       const height = this.lineTotalHeight / 2;
       let width = this.lengthFromMiddle;
-      const modifier = this.isLeftSide ? "" : "-";
+      const modifier = this.isLeftSide ? '' : '-';
       const radius = 12;
 
       // bend it
@@ -6217,47 +6217,57 @@ function getOffset(el) {
       }
     },
     removeNode() {
-      this.$emit("remove", {
+      this.$emit('remove', {
         node: this.node
       });
       this.setWidth();
     },
     draggingNodeFromEvent(event) {
-      return get_default()(event, "oldComponent.$attrs.data.draggingNode", false);
+      return get_default()(event, 'oldComponent.$attrs.data.draggingNode', false);
     },
     dropzoneNodeFromEvent(event) {
-      return get_default()(event, "newComponent.$attrs.data.dropzoneNode", false);
+      return get_default()(event, 'newComponent.$attrs.data.dropzoneNode', false);
     },
     blockFromNewNodeEvent(event) {
-      const data = get_default()(event, "oldComponent.$attrs.data", false);
+      const data = get_default()(event, 'oldComponent.$attrs.data', false);
       return {
         nodeComponent: data.componentName,
         data: cloneDeep_default()(data.props)
       };
     },
-    onStart(node) {
-      // get the mirror and append to outside container on vue app
-      // setTimeout(() => {
-      //   const mirror = this.$refs["flowy-node"].querySelector(".flowy-block.draggable-mirror");
-      //
-      //   if (mirror) {
-      //     mirror.style.opacity = 0.6;
-      //     document.querySelector("#app").appendChild(mirror);
-      //   }
-      // });
-      this.$emit("drag-start", {
-        node
+    onStart(node, event) {
+      if (!event.target.querySelectorAll(':scope > .flowy-drag-handle.draggable').length) {
+        event.preventDefault();
+        return;
+      }
+      this.mirror = event.target.cloneNode(true);
+      this.mirror.style.position = 'absolute !important';
+      this.mirror.style.bottom = '-100px';
+      this.mirror.style.right = '0px';
+      this.mirror.classList.add('draggable-mirror');
+      document.body.appendChild(this.mirror);
+      event.dataTransfer.setDragImage(this.mirror, 100, 100);
+      /* setTimeout to prevent issue where dragend is called immediately*/
+      /* https://stackoverflow.com/questions/19639969/html5-dragend-event-firing-immediately */
+      setTimeout(() => {
+        this.$emit('drag-start', {
+          node
+        });
       });
+      event.stopPropagation();
     },
     onStop(node, _event) {
-      this.$emit("drag-stop");
+      this.mirror?.remove();
+      this.$emit('drag-stop');
       this.hoveringWithDrag = false;
     },
     onDrop(_event) {
-      this.$emit("drag-stop");
+      this.mirror?.remove();
+      this.$emit('drag-stop');
       this.hoveringWithDrag = false;
     },
     onDragReceive(_event) {
+      this.mirror?.remove();
       this.hoveringWithDrag = false;
       const draggingNode = this.draggingNode;
       const toNode = _event.to;
@@ -6276,7 +6286,7 @@ function getOffset(el) {
           this.moveNode(draggingNode, toNode);
         }
       }
-      this.$emit("drag-received", {
+      this.$emit('drag-received', {
         to: toNode,
         from: draggingNode
       });
@@ -6297,7 +6307,7 @@ function getOffset(el) {
     newNode(newNode, parentNode) {
       const dropAllowed = this.beforeAdd(newNode);
       if (dropAllowed) {
-        this.$emit("add", {
+        this.$emit('add', {
           node: {
             parentId: parentNode.id,
             ...newNode
@@ -6307,7 +6317,7 @@ function getOffset(el) {
       this.setWidth();
     },
     moveNode(from, to) {
-      this.$emit("move", {
+      this.$emit('move', {
         dragged: from,
         to
       });
@@ -6316,10 +6326,10 @@ function getOffset(el) {
 });
 ;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=style&index=0&id=4c8d9920&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=style&index=0&id=4e6d2708&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=style&index=0&id=4c8d9920&lang=scss
+;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=style&index=0&id=4e6d2708&lang=scss
 
 ;// CONCATENATED MODULE: ./src/components/FlowyNode.vue
 
@@ -6329,7 +6339,7 @@ function getOffset(el) {
 ;
 
 
-const FlowyNode_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(FlowyNodevue_type_script_lang_js, [['render',FlowyNodevue_type_template_id_4c8d9920_lang_html_render]])
+const FlowyNode_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(FlowyNodevue_type_script_lang_js, [['render',FlowyNodevue_type_template_id_4e6d2708_lang_html_render]])
 
 /* harmony default export */ var FlowyNode = (FlowyNode_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyBlock.vue?vue&type=script&setup=true&lang=js
