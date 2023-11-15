@@ -35,6 +35,7 @@
 			<DropIndicator :show="showIndicator" :not-allowed="!dropAllowed" />
 
 			<div
+        :class="{ isDragging }"
 				@dragenter="onEnterDrag({ to: node })"
 				@dragleave="onLeaveDrag($event)"
 				@drop="onDragReceive({ ...$event, to: node })"
@@ -336,19 +337,18 @@ export default {
 		},
 
 		onStop(node, _event) {
-			this.mirror?.remove();
+			if (this.mirror) this.mirror.remove();
 			this.$emit('drag-stop');
 			this.hoveringWithDrag = false;
 		},
 
 		onDrop(_event) {
-			this.mirror?.remove();
+      if (this.mirror) this.mirror.remove();
 			this.$emit('drag-stop');
 			this.hoveringWithDrag = false;
 		},
 
 		onDragReceive(_event) {
-			this.mirror?.remove();
 			this.hoveringWithDrag = false;
 
 			const draggingNode = this.draggingNode;
@@ -371,6 +371,7 @@ export default {
 			this.$emit('drag-received', { to: toNode, from: draggingNode });
 			this.dropAllowed = true;
 			this.setWidth();
+      this.onStop()
 		},
 
 		onEnterDrag(_event) {
