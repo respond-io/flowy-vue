@@ -5832,9 +5832,9 @@ var exportHelper = __webpack_require__(3744);
 const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Flowyvue_type_script_lang_js, [['render',render]])
 
 /* harmony default export */ var Flowy = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=template&id=d89bcfbc&lang=html
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=template&id=7c60fa68&lang=html
 
-const FlowyNodevue_type_template_id_d89bcfbc_lang_html_hoisted_1 = {
+const FlowyNodevue_type_template_id_7c60fa68_lang_html_hoisted_1 = {
   class: "flowy-node flex flex-col flex-no-wrap items-center relative overflow-visible",
   ref: "flowy-node"
 };
@@ -5846,12 +5846,12 @@ const _hoisted_2 = {
 const _hoisted_3 = {
   class: "flowy-tree flex flex-row flex-no-wrap overflow-visible mt-74px"
 };
-function FlowyNodevue_type_template_id_d89bcfbc_lang_html_render(_ctx, _cache, $props, $setup, $data, $options) {
+function FlowyNodevue_type_template_id_7c60fa68_lang_html_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ConnectorLine = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("ConnectorLine");
   const _component_DropIndicator = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("DropIndicator");
   const _component_flowy_block = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("flowy-block");
   const _component_flowy_node = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("flowy-node", true);
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", FlowyNodevue_type_template_id_d89bcfbc_lang_html_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createVNode)(_component_flowy_block, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
+  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", FlowyNodevue_type_template_id_7c60fa68_lang_html_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createVNode)(_component_flowy_block, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
     ..._ctx.$props,
     ...$options.passedProps
   }, {
@@ -5907,7 +5907,7 @@ function FlowyNodevue_type_template_id_d89bcfbc_lang_html_render(_ctx, _cache, $
     }), null, 16, ["index", "total-children", "node", "parent-x"]);
   }), 128))])], 512);
 }
-;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=d89bcfbc&lang=html
+;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=template&id=7c60fa68&lang=html
 
 // EXTERNAL MODULE: ./node_modules/lodash/isNil.js
 var isNil = __webpack_require__(4293);
@@ -6243,7 +6243,7 @@ function getOffset(el) {
         return;
       }
       this.mirror = event.target.cloneNode(true);
-      this.mirror.style.position = 'absolute !important';
+      this.mirror.style.setProperty('position', 'absolute', 'important');
       this.mirror.style.bottom = '-100px';
       this.mirror.style.right = '0px';
       this.mirror.classList.add('draggable-mirror');
@@ -6328,10 +6328,10 @@ function getOffset(el) {
 });
 ;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=script&lang=js
  
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=style&index=0&id=d89bcfbc&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyNode.vue?vue&type=style&index=0&id=7c60fa68&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=style&index=0&id=d89bcfbc&lang=scss
+;// CONCATENATED MODULE: ./src/components/FlowyNode.vue?vue&type=style&index=0&id=7c60fa68&lang=scss
 
 ;// CONCATENATED MODULE: ./src/components/FlowyNode.vue
 
@@ -6341,7 +6341,7 @@ function getOffset(el) {
 ;
 
 
-const FlowyNode_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(FlowyNodevue_type_script_lang_js, [['render',FlowyNodevue_type_template_id_d89bcfbc_lang_html_render]])
+const FlowyNode_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(FlowyNodevue_type_script_lang_js, [['render',FlowyNodevue_type_template_id_7c60fa68_lang_html_render]])
 
 /* harmony default export */ var FlowyNode = (FlowyNode_exports_);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/FlowyBlock.vue?vue&type=script&setup=true&lang=js

@@ -322,8 +322,8 @@ export default {
 				return;
 			}
 			this.mirror = event.target.cloneNode(true);
-			this.mirror.style.position = 'absolute !important';
-			this.mirror.style.bottom = '-100px';
+      this.mirror.style.setProperty('position', 'absolute', 'important');
+      this.mirror.style.bottom = '-100px';
 			this.mirror.style.right = '0px';
 			this.mirror.classList.add('draggable-mirror');
 			document.body.appendChild(this.mirror);
