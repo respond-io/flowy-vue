@@ -11,6 +11,7 @@
 				:node="node"
 				:key="node.id"
 				v-for="node in parentNodes"
+				@drag-received="$emit('drag-received', $event)"
 				@drag-start="onDragStart($event)"
 				@drag-stop="onDragStop($event)"
 				@enter-drop="onEnterDrop($event)"
