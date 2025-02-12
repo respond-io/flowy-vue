@@ -80,7 +80,7 @@ export default {
   mounted() {
 
   },
-  destroyed() {
+  unmounted() {
 
   },
   methods: {

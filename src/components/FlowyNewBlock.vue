@@ -1,56 +1,39 @@
 <template lang="html">
   <div class="flowy-block mr-24px relative">
-    <draggable
-        :with-handle="false"
-        :draggable-mirror="{ xAxis: false, appendTo: 'body' }"
-        group="flowy"
-        @start="onStart(nodeData)"
-        @stop="onStop(nodeData)"
-        :data="{ type: 'new', ...nodeData }"
-      >
+    <div draggable="true" @dragstart="onStart(nodeData)" @dragend="onStop(nodeData)">
       <slot name="preview"></slot>
-    </draggable>
+    </div>
   </div>
 </template>
 
-<script>
-/* eslint-disable no-unused-vars */
+<script setup>
+import { ref, computed, onMounted, useSlots } from "vue";
 
-export default {
-  props: {
+const node = ref({
+  componentName: "",
+  props: {},
+});
 
-  },
-  data() {
-    return {
-      node: {
-        componentName: '',
-        props: {},
-      },
+const slots = useSlots();
+onMounted(() => {
+  const nodeSlot = slots.node()[0];
+  if (nodeSlot && nodeSlot.type === Object) {
+    node.value.componentName = nodeSlot.componentOptions.tag;
+    node.value.props = {
+      ...nodeSlot.componentOptions.propsData,
+      ...nodeSlot.data.attrs,
     };
-  },
-  mounted() {
-    const node = this.$scopedSlots.node()[0];
-    this.node.componentName = node.componentOptions.tag;
-    this.node.props = {
-      ...node.componentOptions.propsData,
-      ...node.data.attrs,
-    };
-  },
-  destroyed() {
+  }
+});
 
-  },
-  computed: {
-    nodeData() {
-      return this.node;
-    },
-  },
-  methods: {
-    onStart(data) {
-      this.$emit('drag-start', data);
-    },
-    onStop(data) {
-      this.$emit('drag-stop', data);
-    },
-  },
+const nodeData = computed(() => node.value);
+
+const emit = defineEmits(["drag-start", "drag-stop"]);
+const onStart = (data) => {
+  emit("drag-start", data);
+};
+
+const onStop = (data) => {
+  emit("drag-stop", data);
 };
 </script>

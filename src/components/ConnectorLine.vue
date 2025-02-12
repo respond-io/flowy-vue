@@ -5,7 +5,7 @@
     :class="{
       'flowy-line-block--vertical': vertical,
       '-mt-74px': verticalOffset,
-      'no-children': noChildren,
+      'no-children': noChildren || null,
       }"
   >
     <svg

@@ -1,8 +1,8 @@
-<template lang="html">
+<template>
   <div class="flowy-block mr-24px relative" :data-id="`node-${node.id}`"
-  :class="{
-    'no-children': noChildren,
-    [node.customClass]: true
+       :class="{
+      'no-children': noChildren || null,
+      [node.customClass]: true
     }">
     <slot></slot>
     <component
@@ -13,52 +13,21 @@
   </div>
 </template>
 
-<script>
-/* eslint-disable no-unused-vars */
+<script setup>
+import { computed } from 'vue';
 
-export default {
-  props: {
-    node: {
-      type: Object,
-      required: true,
-    },
-    remove: {
-      type: Function,
-      required: true,
-    },
-    noChildren: Boolean,
+const props = defineProps({
+  node: {
+    type: Object,
+    required: true,
   },
-  data() {
-    return {
+  remove: {
+    type: Function,
+    required: true,
+  },
+  noChildren: Boolean,
+});
 
-    };
-  },
-  mounted() {
-
-  },
-  destroyed() {
-
-  },
-  computed: {
-    component() {
-      return this.node.nodeComponent;
-      // return find(this.blocks, { name: this.node.block }).name;
-    },
-    passedProps() {
-      return this.node.data;
-    },
-  },
-  methods: {
-    onDragEnd(_event) {
-
-    },
-    onDragStart(_event) {
-
-    },
-  },
-  render(c) {
-    const item = this.$scopedSlots.default()[0];
-    return item;
-  },
-};
+const component = computed(() => props.node.nodeComponent);
+const passedProps = computed(() => props.node.data);
 </script>

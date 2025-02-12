@@ -5,7 +5,6 @@
     </div>
     <div class="flex-grow overflow-hidden flex flex-row flex-no-wrap">
       <div class="z-40 flex-shrink pl-6 pt-6 bg-white border-r border-grey-400">
-
         <div class="side z-50">
           <div class="text-lg font-bold mb-4">Blocks</div>
           <div>
@@ -15,14 +14,14 @@
               @drag-start="onDragStartNewBlock"
               @drag-stop="onDragStopNewBlock"
             >
-              <template v-slot:preview="{}">
+              <template #preview>
                 <demo-block
                   :title="block.preview.title"
                   :description="block.preview.description"
                   :icon="block.preview.icon"
                 />
               </template>
-              <template v-slot:node="{}">
+              <template #node>
                 <demo-node
                   :title="block.node.title"
                   :description="block.node.description"
@@ -55,19 +54,16 @@
 <script>
 /* eslint-disable vue/no-unused-components */
 /* eslint-disable no-unused-vars */
-import Vue from 'vue';
-import find from 'lodash/find';
-import findIndex from 'lodash/findIndex';
-import generateId from './lib/generateId';
-import nodes from './demo_data/simple';
-import blocks from './demo_data/sampleBlocks';
-
+import Vue from "vue";
+import find from "lodash/find";
+import findIndex from "lodash/findIndex";
+import generateId from "./lib/generateId";
+import nodes from "./demo_data/simple";
+import blocks from "./demo_data/sampleBlocks";
 
 export default {
-  name: 'app',
-  components: {
-
-  },
+  name: "app",
+  components: {},
   data: () => ({
     holder: [],
     dragging: false,
@@ -77,37 +73,31 @@ export default {
   }),
   methods: {
     onDragStartNewBlock(event) {
-      console.log('onDragStartNewBlock', event);
+      console.log("onDragStartNewBlock", event);
       this.newDraggingBlock = event;
     },
     onDragStopNewBlock(event) {
-      console.log('onDragStopNewBlock', event);
+      console.log("onDragStopNewBlock", event);
       this.newDraggingBlock = null;
     },
-    onDropBlock(_event) {
-
-    },
+    onDropBlock(_event) {},
     beforeAdd() {
-      console.log('before add');
+      console.log("before add");
       return true;
     },
-    afterAdd() {
-
-    },
+    afterAdd() {},
     onEnterDrop(event) {
-      console.log('entered drop');
+      console.log("entered drop");
       return true;
     },
     beforeMove({ to, from }) {
       console.log(to, from);
-      if (from && from.id === '1') {
+      if (from && from.id === "1") {
         return false;
       }
       return true;
     },
-    onEnter() {
-
-    },
+    onEnter() {},
     addNode(_event) {
       const id = this.generateId();
       this.nodes.push({
@@ -120,7 +110,7 @@ export default {
       this.nodes.splice(nodeIndex, 1);
     },
     move(event) {
-      console.log('move', event);
+      console.log("move", event);
       const { dragged, to } = event;
       dragged.parentId = to.id;
     },
@@ -132,13 +122,11 @@ export default {
       });
     },
     onDragStart(event) {
-      console.log('onDragStart', event);
+      console.log("onDragStart", event);
       this.dragging = true;
     },
   },
-  watch: {
-
-  },
+  watch: {},
 };
 </script>
 
